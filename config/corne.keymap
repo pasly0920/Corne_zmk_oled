@@ -24,6 +24,20 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        td_e_esc: td_e_esc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_E_ESC";
+            #binding-cells = <0>;
+            bindings = <&kp E>, <&kp ESCAPE>;
+        };
+
+        td_w_lang: td_w_lang {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_W_LANG";
+            #binding-cells = <0>;
+            bindings = <&kp W>, <&kp F19>;
+        };
     };
 
     combos {
@@ -81,10 +95,10 @@
         default_layer {
             label = "0";
             bindings = <
-&kp ESC       &kp Q  &kp W  &kp E      &kp R        &kp T                 &kp Y                &kp U           &kp I                     &kp O    &kp P     &kp BSPC
-&kp CAPSLOCK  &kp A  &kp S  &kp D      &kp F        &kp G                 &kp H                &kp J           &kp K                     &kp L    &kp SEMI  &kp RET
-&kp TAB       &kp Z  &kp X  &kp C      &kp V        &kp B                 &kp N                &kp M           &kp COMMA                 &kp DOT  &kp FSLH  &kp RSHFT
-                            &lt 3 SQT  &lt 2 SPACE  &mt LCTRL LEFT_WIN    &lt SYMBOLS_L SPACE  &kp LEFT_SHIFT  &mt LA(SQT) SINGLE_QUOTE
+&kp ESC       &kp Q        &td_w_lang      &td_e_esc         &kp R           &kp T                 &kp Y                &kp U            &kp I                     &kp O            &kp P           &kp BSPC
+&kp CAPSLOCK  &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_SHIFT D  &hm LEFT_GUI F  &kp G                 &kp H                &hm RIGHT_GUI J  &hm RIGHT_SHIFT K         &hm RIGHT_ALT L  &hm RCTRL SEMI  &kp RET
+&kp TAB       &kp Z        &kp X           &kp C             &kp V           &kp B                 &kp N                &kp M            &kp COMMA                 &kp DOT          &kp FSLH        &kp RSHFT
+                                           &lt 3 SQT         &lt 2 SPACE     &mt LCTRL LEFT_WIN    &lt SYMBOLS_L SPACE  &kp LEFT_SHIFT   &mt LA(SQT) SINGLE_QUOTE
             >;
         };
 
@@ -94,7 +108,7 @@
 &none  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &none
 &none  &none   &none   &none   &none   &none     &none   &none   &none   &none   &none   &none
 &none  &none   &none   &none   &none   &none     &none   &none   &none   &none   &none   &none
-                       &kp N1   &none   &none     &none   &none   &none
+                       &kp N1  &none   &none     &none   &none   &none
             >;
         };
 
